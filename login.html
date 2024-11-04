@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бостон команда - Вход</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="firebase-auth.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Бостон команда</h1>
+    </header>
+
+    <div class="login-form">
+        <h2>Вход</h2>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Пароль" required>
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Бостон команда. Все права защищены.</p>
+    </footer>
+
+    <script type="module">
+        import { loginUser } from './firebase-auth.js';
+
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            loginUser(email, password);
+        });
+    </script>
+</body>
+</html>
